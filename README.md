@@ -31,7 +31,7 @@ Here’s an example of how to use this node programmatically:
 
 ```python
 import torch
-from nodes.sd3_5_empty_latent import SD3_5EmptyLatent
+from ComfyUI-SD3.5-Latent-Size-Picker.sd3_5_empty_latent import SD3_5EmptyLatent
 
 # Initialize the SD3_5EmptyLatent node
 latent_picker = SD3_5EmptyLatent()
@@ -58,9 +58,13 @@ print(f"Latent Shape: {latent_output['samples'].shape}, Width: {width}, Height: 
 ## Installation
 
 To use this node in ComfyUI:
-1. Clone or download this repository.
-2. Place the `SD3_5EmptyLatent` class script in the appropriate `nodes` folder for ComfyUI.
-3. Restart ComfyUI to enable the node in the interface.
+1. Clone the repository into the `custom_nodes` folder in ComfyUI:
+
+    ```bash
+    git clone https://github.com/mithamunda/ComfyUI-SD3.5-Latent-Size-Picker.git
+    ```
+
+2. Restart ComfyUI to enable the node in the interface.
 
 ## License
 
