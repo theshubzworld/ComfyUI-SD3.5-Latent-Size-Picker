@@ -9,6 +9,6 @@ Repository = "https://github.com/mithamunda/ComfyUI-SD3.5-Latent-Size-Picker"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "shubzworld"
 DisplayName = "ComfyUI-SD3.5-Latent-Size-Picker"
 Icon = ""
