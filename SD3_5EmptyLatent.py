@@ -33,16 +33,30 @@ class SD3_5EmptyLatent:
     FUNCTION = "execute"
     CATEGORY = "sd3.5/utilities"
 
-    def execute(self, resolution, batch_size, width_override=0, height_override=0, invert_ratios="No"):
-        width, height = resolution.split(" ")[0].split("x")
-        width = width_override if width_override > 0 else int(width)
-        height = height_override if height_override > 0 else int(height)
+    def execute(self, resolution: str, batch_size: int, width_override: int = 0, height_override: int = 0, invert_ratios: str = "No") -> tuple:
+        # Parse resolution
+        try:
+            width_str, height_str = resolution.split(" ")[0].split("x")
+            width = int(width_str)
+            height = int(height_str)
+        except (ValueError, IndexError):
+            raise ValueError(f"Invalid resolution format: {resolution}. Expected format: 'WIDTHxHEIGHT (RATIO)'")
+
+        # Apply overrides if provided
+        if width_override > 0:
+            width = min(width_override, MAX_RESOLUTION)
+        if height_override > 0:
+            height = min(height_override, MAX_RESOLUTION)
+
+        # Ensure valid dimensions
+        width = max(64, min(width, MAX_RESOLUTION))
+        height = max(64, min(height, MAX_RESOLUTION))
 
         # If inverting ratios, swap width and height
         if invert_ratios == "Yes":
             width, height = height, width
 
-        # Ensure that the width and height are multiples of 64
+        # Ensure dimensions are multiples of 64
         width = (width // 64) * 64
         height = (height // 64) * 64
 

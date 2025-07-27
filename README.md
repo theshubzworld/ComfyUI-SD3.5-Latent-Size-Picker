@@ -1,22 +1,27 @@
 
-# 🔧 SD3.5 Empty Latent Size Picker
+# 🔧 Universal Empty Latent Size Picker
 
-A utility node for generating empty latent tensors in Stable Diffusion v3.5-compatible resolutions. This node allows for custom batch sizes, width/height overrides, and inverting aspect ratios, ensuring flexibility and compatibility in ComfyUI workflows.
+A versatile node for generating empty latent tensors with support for SD3.5, SDXL, and Flux models. This node offers extensive aspect ratio support, batch processing, and flexible dimension overrides, ensuring optimal performance across different model types.
 
 ## Features
 
-- **Supported Resolutions**: Choose from a predefined list of Stable Diffusion v3.5-compatible resolutions.
-- **Batch Size Control**: Set a batch size to create multiple latent tensors at once.
-- **Width and Height Overrides**: Use custom width and height values as needed, while maintaining Stable Diffusion compatibility constraints.
-- **Ratio Inversion Option**: Quickly swap width and height to experiment with alternate aspect ratios.
-- **Multiple of 64 Constraint**: Ensures output width and height are multiples of 64, which Stable Diffusion requires for optimal performance.
+- **Wide Range of Resolutions**: Extensive list of predefined resolutions covering various aspect ratios
+- **Model Agnostic**: Works with SD3.5, SDXL, and Flux models
+- **Aspect Ratio Control**: Built-in aspect ratio locking for consistent results
+- **Flexible Overrides**: Custom width/height overrides with aspect ratio preservation
+- **Performance Optimized**: Efficient tensor creation with minimal overhead
+- **Batch Processing**: Generate multiple latent tensors in a single operation
+- **Downsample Control**: Adjustable downsample factor for different model requirements
 
 ## Parameters
 
-- **resolution**: A dropdown list of pre-configured resolutions for Stable Diffusion v3.5, with a default of `"1024x1024 (1.0)"`.
-- **batch_size**: Integer value defining the number of latent tensors to generate. Default is `1`.
-- **width_override** and **height_override**: Optional custom dimensions. When set above 0, these values override the selected `resolution` dimensions.
-- **invert_ratios**: Option to invert width and height for alternative aspect ratios.
+- **resolution**: Dropdown list of pre-configured resolutions (default: `"1024x1024 (1:1)"`)
+- **batch_size**: Number of latent tensors to generate (default: `1`)
+- **width_override** / **height_override**: Custom dimensions (0 = use preset)
+- **aspect_ratio_lock**: Lock aspect ratio to width, height, or unlocked
+- **latent_channels**: Number of channels in latent space (default: `4`)
+- **downsample_factor**: Model scaling factor (auto/4/8)
+- **invert_ratios**: Swap width and height dimensions
 
 ## Output
 
