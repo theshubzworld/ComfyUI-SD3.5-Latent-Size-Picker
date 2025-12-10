@@ -11,4 +11,4 @@ Repository = "https://github.com/theshubzworld/ComfyUI-SD3.5-Latent-Size-Picker"
 [tool.comfy]
 PublisherId = "shubzworld"
 DisplayName = "ComfyUI-SD3.5-Latent-Size-Picker"
-Icon = ""
+Icon = "https://avatars.githubusercontent.com/u/176368083"
